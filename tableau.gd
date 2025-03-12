@@ -38,7 +38,8 @@ func _process(_delta: float) -> void:
 		var n_cards = tabs[t].size()
 		if n_cards > 0:
 			tabs[t].back().reveal()
-			tabs[t][0].rest_position.x = t * spacing.x
+			tabs[t][0].rest_position = Vector2(t * spacing.x, 0)
+		
 		for u in range(1, n_cards):
 			var adjusted_spacing: int = spacing.y
 			if n_cards > 10:

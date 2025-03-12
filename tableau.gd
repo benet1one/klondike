@@ -69,6 +69,9 @@ func is_card_movable(card: Card) -> bool:
 			return false
 	return true
 
+func lower_cards(t: int, u: int) -> Array[Card]:
+	return tabs[t].slice(u + 1)
+
 func move_card(card: Card) -> bool:
 	var t: int = roundi(
 		(card.global_position.x - self.global_position.x) / spacing.x
@@ -76,7 +79,7 @@ func move_card(card: Card) -> bool:
 	t = min(6, t)
 	t = max(0, t)
 	
-	if !is_card_movable(card):
+	if not is_card_movable(card):
 		print("Card stack not movable")
 		return false
 		
@@ -105,9 +108,7 @@ func move_card(card: Card) -> bool:
 			tabs[t][u].tab = t
 			tabs[t][u].row = u
 
-		for u in range(u_from, tabs[t_from].size()):
-			print("popping at ", t_from)
-			tabs[t_from].pop_back()
+		tabs[t_from] = tabs[t_from].slice(0, u_from)
 		
 		print("Successful move: Tableau -> Tableau")
 		return true
@@ -121,6 +122,3 @@ func move_card(card: Card) -> bool:
 		
 		print("Successful move: Elsewhere -> Tableau")
 		return true
-
-func lower_cards(t: int, u: int) -> Array[Card]:
-	return tabs[t].slice(u + 1)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://tsksolp4576f"]
+
+[ext_resource type="Script" path="res://klondike.gd" id="1_g21cl"]
+[ext_resource type="Script" path="res://stack.gd" id="1_haqhf"]
+[ext_resource type="Script" path="res://tableau.gd" id="2_edid8"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_g21cl")
+
+[node name="Stack" type="Node2D" parent="."]
+position = Vector2(240, 81)
+script = ExtResource("1_haqhf")
+
+[node name="Button" type="Button" parent="Stack"]
+visible = false
+offset_left = -34.0
+offset_top = -51.0
+offset_right = 34.0
+offset_bottom = 53.0
+
+[node name="Discard" type="Node2D" parent="."]
+position = Vector2(321, 81)
+
+[node name="Tableau" type="Node2D" parent="."]
+position = Vector2(240, 213)
+script = ExtResource("2_edid8")
+
+[node name="Foundations" type="Node2D" parent="."]
+
+[node name="Heart" type="Node2D" parent="Foundations"]
+position = Vector2(767, 81)
+
+[node name="Spade" type="Node2D" parent="Foundations"]
+position = Vector2(847, 81)
+
+[node name="Diamond" type="Node2D" parent="Foundations"]
+position = Vector2(1008, 81)
+
+[node name="Club" type="Node2D" parent="Foundations"]
+position = Vector2(928, 81)
+
+[connection signal="pressed" from="Stack/Button" to="Stack" method="_on_button_pressed"]

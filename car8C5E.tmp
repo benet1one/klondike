@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwpitbk45rkji"]
+
+[ext_resource type="Script" path="res://card.gd" id="1_wgngc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nidw"]
+bg_color = Color(0.900705, 0.900705, 0.900705, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_wgngc")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -13.0
+offset_top = -20.0
+offset_right = 13.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1nidw")
+action_mode = 0

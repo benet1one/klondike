@@ -15,7 +15,7 @@ func set_cards(card_set: Array[Card]) -> void:
 			card.location = Main.Location.Tableau
 			card.tab = t
 			card.row = u
-			
+			card.name = card.format()
 			add_child(card)
 			tabs.back().push_back(card)
 			i += 1

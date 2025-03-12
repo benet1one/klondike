@@ -7,10 +7,11 @@ var spacing: Vector2
 
 func set_cards(card_set: Array[Card]):
 	stack = card_set
-	for c in stack:
-		c.location = Main.Location.Stack
-		c.disable_grab()
-		add_child(c)
+	for card in stack:
+		card.location = Main.Location.Stack
+		card.disable_grab()
+		card.name = card.format()
+		add_child(card)
 	$StackClick.move_to_front()
 	
 func _process(delta: float) -> void:

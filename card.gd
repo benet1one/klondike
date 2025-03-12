@@ -2,6 +2,7 @@ extends Node2D
 class_name Card
 
 signal move(card: Card)
+var grabbed: bool = false
 
 var max_rotation: float = 0.05
 var rest_position: Vector2 = Vector2.ZERO

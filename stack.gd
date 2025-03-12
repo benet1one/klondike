@@ -14,6 +14,9 @@ func set_cards(card_set: Array[Card]):
 	$StackClick.move_to_front()
 	
 func _process(delta: float) -> void:
+	for card in discard:
+		Main.grabbed_on_top(card)
+	
 	if discard.size() == last_discard_size:
 		return
 	last_discard_size = discard.size()

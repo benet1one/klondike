@@ -26,9 +26,13 @@ func set_cards(card_set: Array[Card]) -> void:
 func _process(_delta: float) -> void:
 	var i: int = 0
 	for t in tabs:
+		var z: int = 0
 		for card in t:
 			move_child(card, i)
 			i += 1
+			if card.grabbed:
+				z = 1
+			card.z_index = z
 	
 	for t in range(7):
 		var n_cards = tabs[t].size()

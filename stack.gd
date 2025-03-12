@@ -29,6 +29,7 @@ func _on_stack_clicked() -> void:
 	if stack.is_empty():
 		stack.append_array(discard)
 		stack.reverse()
+		discard.clear()
 		for card in stack:
 			card.location = Main.Location.Stack
 			card.rest_position = Vector2.ZERO

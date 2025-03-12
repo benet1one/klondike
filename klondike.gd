@@ -81,7 +81,3 @@ func move_to_foundation(card: Card) -> bool:
 	card.row = card.number - 1
 
 	return true
-
-
-func _on_discard_click() -> void:
-	pass # Replace with function body.

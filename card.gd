@@ -38,6 +38,21 @@ func _ready() -> void:
 		$Backside.show()
 		$Button.disabled = true
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if $Button.button_pressed:
+		global_position = get_global_mouse_position() - mouse_offset
+		grabbed = true
+	else:
+		return_to_rest(delta)
+		grabbed = false
+
+func return_to_rest(delta: float) -> void:
+	if (rest_position.distance_squared_to(position) < 2):
+		position = rest_position
+	else:
+		position -= (position - rest_position) * 15 * delta
+
 func reveal():
 	if shown:
 		return
@@ -54,29 +69,22 @@ func unreveal():
 func enable_grab():
 	if $Button.disabled:
 		$Button.disabled = false
+		#print("Card " + str(self) + " enabled grab")
 
 func disable_grab():
 	if not $Button.disabled:
 		$Button.disabled = true
+		#print("Card " + str(self) + " disabled grab")
 
-func format() -> String:
-	return str(number) + Main.shapes[shape]
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if $Button.button_pressed:
-		global_position = get_global_mouse_position() - mouse_offset
-		self.z_index = 100
+func format(simple: bool = true) -> String:
+	var nam = Main.letters[number - 1] + Main.shapes[shape]
+	if simple:
+		return nam
 	else:
-		return_to_rest(delta)
-		self.z_index = self.row
+		return nam + " [" + str(tab) + ", " + str(row) + "]"
 
-func return_to_rest(delta: float) -> void:
-	if (rest_position.distance_squared_to(position) < 2):
-		position = rest_position
-	else:
-		position -= (position - rest_position) * 15 * delta
-
+func _to_string() -> String:
+	return format(false)
 
 func _on_button_down() -> void:
 	mouse_offset = get_local_mouse_position()

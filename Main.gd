@@ -11,10 +11,6 @@ enum Location {
 	Foundations
 }
 
-func cards_in_order(top_card: Card, bottom_card: Card) -> bool:
-	if top_card == null:
-		return bottom_card.number == 13
-	return top_card.number == bottom_card.number + 1  and  top_card.red != bottom_card.red
 func grabbed_on_top(card: Card):
 	if card.grabbed:
 		card.z_index = 1

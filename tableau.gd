@@ -52,6 +52,11 @@ func debug_print() -> void:
 		for card in t:
 			print(card.format() + " ")
 
+func cards_in_order(top_card: Card, bottom_card: Card) -> bool:
+	if top_card == null:
+		return bottom_card.number == 13
+	return top_card.number == bottom_card.number + 1  and  top_card.red != bottom_card.red
+
 func is_card_movable(card: Card) -> bool:
 	if card.location != Main.Location.Tableau:
 		return true
@@ -60,7 +65,7 @@ func is_card_movable(card: Card) -> bool:
 	var u = card.row
 	
 	for k in range(u + 1, tabs[t].size()):
-		if !Main.cards_in_order(tabs[t][k - 1], tabs[t][k]):
+		if !cards_in_order(tabs[t][k - 1], tabs[t][k]):
 			return false
 	return true
 
@@ -81,7 +86,7 @@ func move_card(card: Card) -> bool:
 	else:
 		top_card = tabs[t].back()
 	
-	if !Main.cards_in_order(top_card, card):
+	if not cards_in_order(top_card, card):
 		print("Cards not in order")
 		return false
 	

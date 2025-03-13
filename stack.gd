@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 	for card in discard:
 		Main.grabbed_on_top(card)
 	
+	if Input.is_action_just_pressed("stack_event"):
+		stack_event()
+	
 	if discard.size() == last_discard_size:
 		return
 	last_discard_size = discard.size()
@@ -27,6 +30,9 @@ func _process(delta: float) -> void:
 		discard.back().enable_grab()
 
 func _on_stack_clicked() -> void:
+	stack_event()
+
+func stack_event() -> void:
 	if stack.is_empty():
 		stack.append_array(discard)
 		stack.reverse()

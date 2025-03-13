@@ -17,7 +17,7 @@ var location: Main.Location = Main.Location.Stack
 var tab: int = -1
 var row: int = -1
 
-var ColorRed: Color = Color.CRIMSON
+var ColorRed: Color = Color.CRIMSON.darkened(0.05)
 var ColorBlack: Color = Color.from_hsv(0, 0, 0.08)
 
 # Called when the node enters the scene tree for the first time.

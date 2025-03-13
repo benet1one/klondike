@@ -9,23 +9,24 @@
 script = ExtResource("1_g21cl")
 
 [node name="Stack" type="Node2D" parent="."]
-position = Vector2(240, 81)
+position = Vector2(365, 151)
 script = ExtResource("1_haqhf")
 
 [node name="StackClick" type="Button" parent="Stack"]
 modulate = Color(1, 1, 1, 0)
 z_index = 100
-offset_left = -34.0
-offset_top = -51.0
-offset_right = 34.0
-offset_bottom = 53.0
+offset_left = -57.0
+offset_top = -88.0
+offset_right = 57.0
+offset_bottom = 90.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Tableau" type="Node2D" parent="."]
-position = Vector2(240, 213)
+position = Vector2(365, 355)
 script = ExtResource("2_edid8")
 
 [node name="Foundations" type="Node2D" parent="."]
-position = Vector2(546, 81)
+position = Vector2(671, 151)
 script = ExtResource("5_ic32s")
 
 [connection signal="pressed" from="Stack/StackClick" to="Stack" method="_on_stack_clicked"]

@@ -3,7 +3,7 @@ extends Node2D
 var card_scene: PackedScene = load("res://card.tscn")
 var card_set: Array[Card]
 
-var spacing: Vector2 = Vector2(80, 22)
+var spacing: Vector2 = Vector2(180, 50)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generate_and_split_cards()

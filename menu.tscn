@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://4dtp5drfwqis"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_f66sx"]
+[ext_resource type="PackedScene" uid="uid://tsksolp4576f" path="res://game.tscn" id="1_xki47"]
+[ext_resource type="FontFile" uid="uid://837aolsscops" path="res://NotoSerif.ttf" id="3_wyfss"]
+
+[sub_resource type="Theme" id="Theme_iiw2s"]
+default_font = ExtResource("3_wyfss")
+default_font_size = 20
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_f66sx")
+
+[node name="Game" parent="." instance=ExtResource("1_xki47")]
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_iiw2s")
+
+[node name="NewGame" type="Button" parent="Overlay"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 968.0
+offset_right = 232.0
+offset_bottom = 1030.0
+text = "New Game"
+
+[connection signal="pressed" from="Overlay/NewGame" to="." method="_on_new_game_pressed"]

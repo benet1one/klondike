@@ -2,7 +2,10 @@ extends Node2D
 class_name Card
 
 signal move(card: Card)
+signal click(card: Card)
+
 var grabbed: bool = false
+var time_since_button_down: float = 10
 
 var max_rotation: float = 0.05
 var rest_position: Vector2 = Vector2.ZERO
@@ -29,7 +32,7 @@ func _ready() -> void:
 		$Letter.add_theme_color_override("font_color", ColorRed)
 	else:
 		$Letter.add_theme_color_override("font_color", ColorBlack)
-		
+	
 	if shown:
 		$Letter.show()
 		$Backside.hide()
@@ -39,8 +42,11 @@ func _ready() -> void:
 		$Backside.show()
 		$Button.disabled = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	time_since_button_down += delta
+	grab_and_move(delta)
+	
+func grab_and_move(delta: float) -> void:
 	if $Button.button_pressed:
 		global_position = get_global_mouse_position() - mouse_offset
 		grabbed = true
@@ -88,7 +94,11 @@ func _to_string() -> String:
 	return format(false)
 
 func _on_button_down() -> void:
+	time_since_button_down = 0
 	mouse_offset = get_local_mouse_position()
 
 func _on_button_up() -> void:
-	move.emit(self)
+	if time_since_button_down < 0.18 and position.distance_to(rest_position) < 28:
+		click.emit(self)
+	else:
+		move.emit(self)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://tsksolp4576f"]
 
-[ext_resource type="Script" path="res://klondike.gd" id="1_g21cl"]
-[ext_resource type="Script" path="res://stack.gd" id="1_haqhf"]
-[ext_resource type="Script" path="res://tableau.gd" id="2_edid8"]
-[ext_resource type="Script" path="res://foundations.gd" id="5_ic32s"]
+[ext_resource type="Script" path="res://scripts/klondike.gd" id="1_g21cl"]
+[ext_resource type="Script" path="res://scripts/stack.gd" id="1_haqhf"]
+[ext_resource type="Script" path="res://scripts/tableau.gd" id="2_edid8"]
+[ext_resource type="Script" path="res://scripts/foundations.gd" id="5_ic32s"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g21cl")

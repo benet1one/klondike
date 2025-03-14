@@ -16,3 +16,9 @@ func _process(_delta: float) -> void:
 				card.disable_grab()
 			if not tabs[t].is_empty():
 				tabs[t].back().enable_grab()
+
+func game_won() -> bool:
+	for t in tabs:
+		if t.size() < 13:
+			return false
+	return true

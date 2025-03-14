@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwpitbk45rkji"]
 
-[ext_resource type="Script" path="res://card.gd" id="1_wgngc"]
-[ext_resource type="StyleBox" uid="uid://c5crab5y3bl8u" path="res://card.tres" id="2_70n5d"]
-[ext_resource type="FontFile" uid="uid://837aolsscops" path="res://NotoSerif.ttf" id="3_625px"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_ktb41"]
+[ext_resource type="StyleBox" uid="uid://c5crab5y3bl8u" path="res://assets/card.tres" id="2_06dyl"]
+[ext_resource type="FontFile" uid="uid://837aolsscops" path="res://assets/NotoSerif.ttf" id="3_mds7r"]
 
 [sub_resource type="Theme" id="Theme_qveih"]
-default_font = ExtResource("3_625px")
+default_font = ExtResource("3_mds7r")
 default_font_size = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec1a0"]
@@ -125,20 +125,21 @@ _data = {
 }
 
 [node name="Card" type="Node2D"]
-script = ExtResource("1_wgngc")
+script = ExtResource("1_ktb41")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -54.0
 offset_top = -84.0
 offset_right = 54.0
 offset_bottom = 84.0
-theme_override_styles/focus = ExtResource("2_70n5d")
-theme_override_styles/disabled = ExtResource("2_70n5d")
-theme_override_styles/hover_pressed = ExtResource("2_70n5d")
-theme_override_styles/hover = ExtResource("2_70n5d")
-theme_override_styles/pressed = ExtResource("2_70n5d")
-theme_override_styles/normal = ExtResource("2_70n5d")
+theme_override_styles/focus = ExtResource("2_06dyl")
+theme_override_styles/disabled = ExtResource("2_06dyl")
+theme_override_styles/hover_pressed = ExtResource("2_06dyl")
+theme_override_styles/hover = ExtResource("2_06dyl")
+theme_override_styles/pressed = ExtResource("2_06dyl")
+theme_override_styles/normal = ExtResource("2_06dyl")
 action_mode = 0
+button_mask = 3
 
 [node name="Letter" type="Label" parent="."]
 offset_left = -45.0

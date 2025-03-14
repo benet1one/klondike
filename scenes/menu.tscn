@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://4dtp5drfwqis"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_f66sx"]
-[ext_resource type="PackedScene" uid="uid://tsksolp4576f" path="res://game.tscn" id="1_xki47"]
-[ext_resource type="FontFile" uid="uid://837aolsscops" path="res://NotoSerif.ttf" id="3_wyfss"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_f66sx"]
+[ext_resource type="PackedScene" uid="uid://tsksolp4576f" path="res://scenes/game.tscn" id="1_xki47"]
+[ext_resource type="FontFile" uid="uid://837aolsscops" path="res://assets/NotoSerif.ttf" id="3_wyfss"]
 
 [sub_resource type="Theme" id="Theme_iiw2s"]
 default_font = ExtResource("3_wyfss")

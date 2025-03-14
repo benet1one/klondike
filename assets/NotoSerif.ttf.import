@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://837aolsscops"
-path="res://.godot/imported/NotoSerif.ttf-d5528f9b37d5946ec665c8ec08b9a8ac.fontdata"
+path="res://.godot/imported/NotoSerif.ttf-218addf996168a4fd94ef0127bbf05d7.fontdata"
 
 [deps]
 
-source_file="res://NotoSerif.ttf"
-dest_files=["res://.godot/imported/NotoSerif.ttf-d5528f9b37d5946ec665c8ec08b9a8ac.fontdata"]
+source_file="res://assets/NotoSerif.ttf"
+dest_files=["res://.godot/imported/NotoSerif.ttf-218addf996168a4fd94ef0127bbf05d7.fontdata"]
 
 [params]
 

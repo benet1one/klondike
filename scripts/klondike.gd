@@ -1,10 +1,11 @@
 extends Node2D
 
-var card_scene: PackedScene = load("res://card.tscn")
+var card_scene: PackedScene = load("res://scenes/card.tscn")
 var card_set: Array[Card]
-
 var spacing: Vector2 = Vector2(180, 50)
-# Called when the node enters the scene tree for the first time.
+
+signal win()
+
 func _ready() -> void:
 	generate_and_split_cards()
 	$Stack.spacing = self.spacing
@@ -24,6 +25,7 @@ func generate_and_split_cards() -> void:
 			card.shape = s
 			card.red = Main.reds[s]
 			card.connect("move", _on_card_move)
+			card.connect("click", _on_card_click)
 			card_set.push_back(card)
 			
 	card_set.shuffle()
@@ -33,7 +35,24 @@ func generate_and_split_cards() -> void:
 	$Tableau.set_cards(tableau_cards)
 	$Stack.set_cards(stack_cards)
 
-func _on_card_move(card: Card) -> bool:
+func check_game_won() -> bool:
+	if not $Foundations.game_won():
+		return false
+	
+	win.emit()
+	for card in card_set:
+		card.rest_position.y += spacing.y * card.number
+	return true
+
+func _on_card_click(card: Card) -> void:
+	move_to_foundation(card)
+	check_game_won()
+
+func _on_card_move(card: Card) -> void:
+	move_card(card)
+	check_game_won()
+
+func move_card(card: Card) -> bool:
 	print("Card " + str(card) + " attempting move")
 	if card.global_position.y > $Tableau.position.y - 20:
 		return move_to_tableau(card)
